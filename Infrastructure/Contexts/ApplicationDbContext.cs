@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Contexts
 {
-    public class ApplicationDbContext(DbContextOptions options) : DbContext(options)
+    public class ApplicationDbContext: DbContext
     {
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
+
         public DbSet<AccountHolder> AccountHolders => Set<AccountHolder>();
         public DbSet<Account> Accounts => Set<Account>();
         public DbSet<Transaction> Transactions => Set<Transaction>();
